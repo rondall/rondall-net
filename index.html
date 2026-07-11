@@ -1,0 +1,341 @@
+The generator is the problem, not your computer. Use this as a plain `index.html` file and skip the preview layer entirely.
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rondall</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-border: rgba(255, 255, 255, 0.12);
+      --text: #e5eefc;
+      --muted: #a9b9d6;
+      --blue: #3b82f6;
+      --blue-2: #60a5fa;
+      --shadow: 0 24px 70px rgba(2, 8, 23, 0.45);
+    }
+
+```
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 28%),
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 26%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+.wrap { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+
+header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(14px);
+  background: rgba(7, 17, 31, 0.72);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 10;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-size: 1.05rem;
+}
+
+.brand span { color: var(--blue-2); }
+
+nav { display: flex; gap: 22px; flex-wrap: wrap; }
+nav a { color: var(--muted); font-size: 0.95rem; }
+nav a:hover { color: white; }
+
+.hero { padding: 86px 0 36px; }
+
+.hero-card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  padding: 34px;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  background: rgba(59, 130, 246, 0.08);
+  color: #cfe2ff;
+  font-size: 0.9rem;
+  margin-bottom: 22px;
+}
+
+h1, h2, h3 { line-height: 1.1; margin: 0; }
+h1 {
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  letter-spacing: -0.05em;
+  max-width: 12ch;
+}
+
+.accent { color: var(--blue-2); }
+
+.lead {
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 1.08rem;
+  margin: 20px 0 0;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn.primary { background: var(--blue); color: white; }
+.btn.primary:hover { background: var(--blue-2); }
+.btn.secondary {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.14);
+  color: white;
+}
+.btn.secondary:hover { background: rgba(255,255,255,0.1); }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.chip {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: #d8e4f6;
+  font-size: 0.92rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  padding: 24px 0 88px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.span-6 { grid-column: span 6; }
+.span-4 { grid-column: span 4; }
+.span-8 { grid-column: span 8; }
+.span-12 { grid-column: span 12; }
+
+.section-title {
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8fb6ff;
+  margin-bottom: 10px;
+}
+
+.card p { color: var(--muted); margin: 12px 0 0; }
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.tag {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.12);
+  color: #d7e8ff;
+  font-size: 0.85rem;
+}
+
+.contact-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(59,130,246,0.18), rgba(96,165,250,0.08));
+  border: 1px solid rgba(96,165,250,0.2);
+}
+
+footer {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 26px 0 38px;
+  color: #8ea1bf;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .span-6, .span-4, .span-8, .span-12 { grid-column: span 12; }
+  .topbar { flex-direction: column; align-items: flex-start; }
+  nav { gap: 14px; }
+  .hero { padding-top: 46px; }
+  .hero-card { padding: 26px; }
+}
+```
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">rondall<span>.net</span></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">Personal website</div>
+        <h1>Hi, I&apos;m Rondall.</h1>
+        <p class="lead">
+          This is my corner of the web. I use it to share projects, post a few notes, and make it easy for people to contact me.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn secondary" href="mailto:rondall@rondall.net">Email Me</a>
+        </div>
+        <div class="chips">
+          <span class="chip">IT Support</span>
+          <span class="chip">Cloud Basics</span>
+          <span class="chip">Troubleshooting</span>
+          <span class="chip">Automation</span>
+          <span class="chip">Documentation</span>
+        </div>
+      </div>
+    </section>
+
+```
+<section id="about" class="grid">
+  <article class="card span-6">
+    <div class="section-title">About</div>
+    <h2>A short introduction</h2>
+    <p>
+      Keep this short and useful. A personal site does not need to be flashy. It just needs to make it easy for people to understand who you are, what you do, and how to reach you.
+    </p>
+  </article>
+
+  <article class="card span-6">
+    <div class="section-title">What goes here</div>
+    <h2>The basics</h2>
+    <p>
+      A resume or downloadable PDF, a few projects or labs, a short blog, and your contact details are enough to start.
+    </p>
+  </article>
+
+  <article id="projects" class="card span-4">
+    <div class="section-title">Projects</div>
+    <h3>Portfolio Website</h3>
+    <p>A clean personal site for sharing projects, experience, and a way to get in touch.</p>
+    <div class="project-tags">
+      <span class="tag">Web</span>
+      <span class="tag">Branding</span>
+      <span class="tag">Cloudflare Pages</span>
+    </div>
+  </article>
+
+  <article class="card span-4">
+    <div class="section-title">Projects</div>
+    <h3>Automation Notes</h3>
+    <p>Short write-ups about useful scripts, tools, and workflows that save time.</p>
+    <div class="project-tags">
+      <span class="tag">Automation</span>
+      <span class="tag">Linux</span>
+      <span class="tag">Productivity</span>
+    </div>
+  </article>
+
+  <article class="card span-4">
+    <div class="section-title">Projects</div>
+    <h3>Learning Log</h3>
+    <p>A simple record of what I am studying, building, and improving over time.</p>
+    <div class="project-tags">
+      <span class="tag">IT</span>
+      <span class="tag">Cloud</span>
+      <span class="tag">Projects</span>
+    </div>
+  </article>
+
+  <article id="resume" class="card span-6">
+    <div class="section-title">Resume</div>
+    <h2>Simple bio</h2>
+    <p>
+      Hi, I&apos;m Rondall. I like keeping things practical and organized. I use this site to share my work, learn out loud, and make it easy for people to contact me.
+    </p>
+  </article>
+
+  <article class="card span-6 contact-box" id="contact">
+    <div>
+      <div class="section-title">Contact</div>
+      <h2>Reach me by email</h2>
+      <p>The easiest way to reach me is at rondall@rondall.net.</p>
+    </div>
+    <a class="btn primary" href="mailto:rondall@rondall.net">Send Email</a>
+  </article>
+</section>
+```
+
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Rondall. Built with a simple blue theme.</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
+
